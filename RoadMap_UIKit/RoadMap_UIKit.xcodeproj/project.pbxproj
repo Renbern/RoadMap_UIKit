@@ -148,6 +148,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		047A73E928DB27E200AFFA3F /* RoadMapScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
