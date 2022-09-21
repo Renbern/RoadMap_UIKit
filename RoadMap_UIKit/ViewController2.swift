@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ViewController2.swift
 //  RoadMap_UIKit
 //
 //  Created by Артур Щукин on 21.09.2022.
@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController2: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewController")
+        print("viewController2")
     }
 
-
 }
-
