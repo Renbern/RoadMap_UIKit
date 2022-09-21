@@ -69,14 +69,26 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		047A73E828DB27B500AFFA3F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		047A73CC28DAFF9300AFFA3F /* RoadMap_UIKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 047A73E128DAFF9500AFFA3F /* Build configuration list for PBXNativeTarget "RoadMap_UIKit" */;
 			buildPhases = (
+				047A73E828DB27B500AFFA3F /* Headers */,
 				047A73C928DAFF9300AFFA3F /* Sources */,
 				047A73CA28DAFF9300AFFA3F /* Frameworks */,
 				047A73CB28DAFF9300AFFA3F /* Resources */,
+				047A73E928DB27E200AFFA3F /* RoadMapScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +144,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		047A73E928DB27E200AFFA3F /* RoadMapScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = RoadMapScript;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		047A73C928DAFF9300AFFA3F /* Sources */ = {
