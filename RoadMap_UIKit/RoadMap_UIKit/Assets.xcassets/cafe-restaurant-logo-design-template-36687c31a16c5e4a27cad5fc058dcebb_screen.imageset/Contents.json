@@ -2,20 +2,14 @@
   "images" : [
     {
       "filename" : "cafe-restaurant-logo-design-template-36687c31a16c5e4a27cad5fc058dcebb_screen.jpg",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
   }
 }
