@@ -22,7 +22,7 @@ class HelloVC: UIViewController {
         start.backgroundColor = .magenta
         start.setTitleColor(.white, for: .normal)
         start.frame = CGRect(x: 100, y: 100, width: 200, height: 60)
-        start.addTarget(self, action: #selector(showHelloAlert), for: .touchUpInside)
+        start.addTarget(self, action: #selector(showHelloAlertAction), for: .touchUpInside)
         return start
     }()
     
@@ -33,7 +33,7 @@ class HelloVC: UIViewController {
         setupUI()
     }
     
-    @objc func showHelloAlert() {
+    @objc func showHelloAlertAction() {
         let helloAlertController = UIAlertController(
             title: "leohl это судьба",
             message: "введите слово",
