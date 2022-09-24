@@ -7,6 +7,22 @@
 
 import UIKit
 
+/// Класс игры Угадай число
+class SecretNumberGame {
+    var secret: Int
+    var answer: Int
+    init() {
+        secret = 0
+        answer = 0
+    }
+    func generate() {
+        secret = Int.random(in: 1...10)
+    }
+    func isRight(answer: Int) -> Bool {
+        secret == answer
+    }
+}
+
 /// Отображает кнопки двух игр, суммы и Угадай число
 class ViewController: UIViewController {
     let greetingLabel: UILabel = {
@@ -23,7 +39,7 @@ class ViewController: UIViewController {
         button.setTitleColor(.purple, for: .normal)
         button.backgroundColor = .gray
         button.frame = CGRect(x: 100, y: 100, width: 200, height: 60)
-        button.addTarget(self, action: #selector(startSumm), for: .touchUpInside)
+        button.addTarget(self, action: #selector(startSummAction), for: .touchUpInside)
         return button
     }()
     
@@ -33,7 +49,7 @@ class ViewController: UIViewController {
         button.setTitleColor(.purple, for: .normal)
         button.backgroundColor = .gray
         button.frame = CGRect(x: 100, y: 200, width: 200, height: 60)
-        button.addTarget(self, action: #selector(startSecretGame), for: .touchUpInside)
+        button.addTarget(self, action: #selector(startSecretGameAction), for: .touchUpInside)
         return button
     }()
     
@@ -49,10 +65,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @objc func startSecretGame() {
+    @objc func startSecretGameAction() {
         showSecretAlert()
     }
-    @objc func startSumm() {
+    @objc func startSummAction() {
         alertSumm()
     }
     
@@ -86,8 +102,8 @@ class ViewController: UIViewController {
         sumAlert.addAction(action)
         sumAlert.addTextField()
         sumAlert.addTextField()
-        self.present(sumAlert, animated: true)
-}
+        present(sumAlert, animated: true)
+    }
     
     // Конфигурирует аллерт ФИО пользователя
     func showUsernameAlert() {
@@ -104,7 +120,7 @@ class ViewController: UIViewController {
         }
         usernameAlertController.addAction(okAction)
         usernameAlertController.addTextField()
-        self.present(usernameAlertController, animated: true)
+        present(usernameAlertController, animated: true)
     }
     
     // Конфигурирует алерт суммы
@@ -125,7 +141,7 @@ class ViewController: UIViewController {
         alertController.textFields?.first?.placeholder = "Введите первое число"
         alertController.textFields?.last?.placeholder = "Введите второе число"
     }
-
+    
     // Вызывает алерт игры Угадай число, результат выводится в консоль в виде булеовго значения
     func showSecretAlert() {
         let alertController = UIAlertController(title: "Угадай число",
@@ -145,7 +161,7 @@ class ViewController: UIViewController {
             self.numberGame.generate()
         }
     }
-
+    
 }
 
 extension ViewController: UITextFieldDelegate {
@@ -154,21 +170,5 @@ extension ViewController: UITextFieldDelegate {
            let number  = Int(text) {
             numberGame.answer = number
         }
-    }
-}
-
-/// Класс игры Угадай число
-class SecretNumberGame {
-    var secret: Int
-    var answer: Int
-    init() {
-        secret = 0
-        answer = 0
-    }
-    func generate() {
-        secret = Int.random(in: 1...10)
-    }
-    func isRight(answer: Int) -> Bool {
-        secret == answer
     }
 }
