@@ -39,15 +39,15 @@ class HelloVC: UIViewController {
             message: "введите слово",
             preferredStyle: .alert
         )
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        let helloAlertControllerOkAction = UIAlertAction(title: "OK", style: .default) { _ in
             guard let inputText = helloAlertController.textFields?.first?.text else {
                 return
             }
             self.resultLabel.text = self.hello.fromLeohlToHello(input: inputText)
         }
         helloAlertController.addTextField()
-        helloAlertController.addAction(okAction)
-        self.present(helloAlertController, animated: true)
+        helloAlertController.addAction(helloAlertControllerOkAction)
+        present(helloAlertController, animated: true)
     }
     
     func setupUI() {

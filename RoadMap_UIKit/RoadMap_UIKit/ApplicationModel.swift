@@ -6,9 +6,11 @@
 //
 /// конвертирует входящее сообщение в Hello
 struct HelloStruct {
-    func fromLeohlToHello(input: String) -> String {
-        if input == "leohl" {
+    func fromLeohlToHello(input: String?) -> String {
+        guard input == "leohl" else {
+            return "Error"
         }
-        return "Hello"
+        let output = "Hello"
+        return output
     }
 }
