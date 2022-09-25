@@ -8,7 +8,7 @@
 import UIKit
 
 /// Дополнительный функционал, экран доставки
-class OrderDelivery: UIViewController {
+class OrderDeliveryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }

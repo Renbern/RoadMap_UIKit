@@ -16,7 +16,8 @@ class MainScreenViewController: UIViewController {
     //  кнопка переносит на экран деталей заказа
     @IBAction func signInAction(_ sender: Any) {
         let buttonSignIn = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = buttonSignIn.instantiateViewController(withIdentifier: "OrderDetailsView") as? OrderDetailsView
+        guard let vc = buttonSignIn.instantiateViewController(
+            withIdentifier: "OrderDetailsView") as? OrderDetailsViewController
         else {
             return
         }

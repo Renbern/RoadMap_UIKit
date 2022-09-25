@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6q9-sa-Haq">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +14,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="MainScreenViewController" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNy-Qu-lJn">
@@ -73,12 +75,12 @@
             </objects>
             <point key="canvasLocation" x="1060" y="-34.123222748815166"/>
         </scene>
-        <!--Order Details View-->
+        <!--Order Details View Controller-->
         <scene sceneID="LD0-zQ-d7W">
             <objects>
-                <viewController storyboardIdentifier="OrderDetailsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TxN-ja-xx4" customClass="OrderDetailsView" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderDetailsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TxN-ja-xx4" customClass="OrderDetailsViewController" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n8B-pf-hZO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ФИО" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEU-M4-uFw">
@@ -189,7 +191,7 @@
             <objects>
                 <viewController storyboardIdentifier="CheckViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BlU-tQ-N94" customClass="CheckViewController" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DtX-DM-e11">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Кипяченая вода" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fo-yx-gqv">
@@ -251,12 +253,12 @@
             </objects>
             <point key="canvasLocation" x="2717" y="-26"/>
         </scene>
-        <!--Order Delivery-->
+        <!--Order Delivery View Controller-->
         <scene sceneID="krE-cq-gjz">
             <objects>
-                <viewController storyboardIdentifier="OrderDelivery" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o00-EE-0T9" customClass="OrderDelivery" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderDelivery" useStoryboardIdentifierAsRestorationIdentifier="YES" id="o00-EE-0T9" customClass="OrderDeliveryViewController" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N2E-9c-WFl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Город" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yat-QD-2Mm">
@@ -341,7 +343,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="xuA-EC-YjN">
-                                <rect key="frame" x="184" y="593" width="406" height="38"/>
+                                <rect key="frame" x="184" y="593" width="196" height="38"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Оплата онлайн" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYC-am-nKn">
