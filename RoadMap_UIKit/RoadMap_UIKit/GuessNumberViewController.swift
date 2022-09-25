@@ -9,13 +9,10 @@ import UIKit
 
 /// Класс игры Угадай число
 class SecretNumberGame {
-    var secret: Int
-    var answer: Int
-    init() {
-        secret = 0
-        answer = 0
-    }
-    func generate() {
+    var secret = 0
+    var answer = 0
+    
+    func generateRandomNumber() {
         secret = Int.random(in: 1...10)
     }
     func isRight(answer: Int) -> Bool {
@@ -24,7 +21,7 @@ class SecretNumberGame {
 }
 
 /// Отображает кнопки двух игр, суммы и Угадай число
-class ViewController: UIViewController {
+class GuessNumberViewController: UIViewController {
     let greetingLabel: UILabel = {
         let greeting = UILabel()
         greeting.text = ""
@@ -55,21 +52,21 @@ class ViewController: UIViewController {
     
     var numberGame = SecretNumberGame()
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        showUsernameAlert()
-        setupUI()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureUserNameAlertController()
+        setupUI()
+    }
+    
     @objc func startSecretGameAction() {
-        showSecretAlert()
+        configureSecretAlert()
     }
     @objc func startSummAction() {
-        alertSumm()
+        configureAlertSummController()
     }
     
     func setupUI() {
@@ -79,9 +76,9 @@ class ViewController: UIViewController {
     }
     
     // Алерт принимает два числа и показывает их сумму
-    func alertSumm() {
+    func configureAlertSummController() {
         let sumAlert = UIAlertController(title: "Сумма чисел", message: "Введите два числа", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default) { _ in
+        let sumAlertAction = UIAlertAction(title: "OK", style: .default) { _ in
             guard let firstNumber = Int(sumAlert.textFields?[0].text ?? ""),
                   let secondNumber = Int(sumAlert.textFields?[1].text ?? "") else {
                 self.showSummAlert(
@@ -99,72 +96,72 @@ class ViewController: UIViewController {
                 textField: false
             )
         }
-        sumAlert.addAction(action)
+        sumAlert.addAction(sumAlertAction)
         sumAlert.addTextField()
         sumAlert.addTextField()
         present(sumAlert, animated: true)
     }
     
     // Конфигурирует аллерт ФИО пользователя
-    func showUsernameAlert() {
+    func configureUserNameAlertController() {
         let usernameAlertController = UIAlertController(
             title: "Давайте познакомимся!",
             message: "Введите ФИО",
             preferredStyle: .alert
         )
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        let userNameAlertControllerOkAction = UIAlertAction(title: "OK", style: .default) { _ in
             guard let username = usernameAlertController.textFields?.first?.text else {
                 return
             }
             self.greetingLabel.text = "Hi, \(username)!"
         }
-        usernameAlertController.addAction(okAction)
+        usernameAlertController.addAction(userNameAlertControllerOkAction)
         usernameAlertController.addTextField()
         present(usernameAlertController, animated: true)
     }
     
     // Конфигурирует алерт суммы
     func showSummAlert(title: String, message: String, preferredStyle: UIAlertController.Style, textField: Bool) {
-        let alertController = UIAlertController(title: title,
+        let sumAlertController = UIAlertController(title: title,
                                                 message: message,
                                                 preferredStyle: preferredStyle)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        let sumAlertControllerOkAction = UIAlertAction(title: "OK", style: .default) { _ in
             print("OK action")
         }
         if textField {
-            alertController.addTextField()
+            sumAlertController.addTextField()
         }
-        alertController.addAction(okAction)
-        self.present(alertController, animated: true)
+        sumAlertController.addAction(sumAlertControllerOkAction)
+        present(sumAlertController, animated: true)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addAction(cancelAction)
-        alertController.textFields?.first?.placeholder = "Введите первое число"
-        alertController.textFields?.last?.placeholder = "Введите второе число"
+        sumAlertController.addAction(cancelAction)
+        sumAlertController.textFields?.first?.placeholder = "Введите первое число"
+        sumAlertController.textFields?.last?.placeholder = "Введите второе число"
     }
     
     // Вызывает алерт игры Угадай число, результат выводится в консоль в виде булеовго значения
-    func showSecretAlert() {
-        let alertController = UIAlertController(title: "Угадай число",
+    func configureSecretAlert() {
+        let secretNumberAlertController = UIAlertController(title: "Угадай число",
                                                 message: "Загадай число от 1 до 10",
                                                 preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+        let secretNumberAlertControllerOkAction = UIAlertAction(title: "OK", style: .default) { _ in
             print(self.numberGame.isRight(answer: self.numberGame.answer))
         }
-        alertController.addAction(okAction)
-        alertController.addTextField { textField in
+        secretNumberAlertController.addAction(secretNumberAlertControllerOkAction)
+        secretNumberAlertController.addTextField { textField in
             textField.delegate = self
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alertController.addAction(cancelAction)
-        present(alertController, animated: true) {
-            self.numberGame.generate()
+        secretNumberAlertController.addAction(cancelAction)
+        present(secretNumberAlertController, animated: true) {
+            self.numberGame.generateRandomNumber()
         }
     }
     
 }
 
-extension ViewController: UITextFieldDelegate {
+extension GuessNumberViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let text = textField.text,
            let number  = Int(text) {
