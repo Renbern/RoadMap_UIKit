@@ -37,22 +37,6 @@ class PlayerViewController: UIViewController {
         configurePlayer()
     }
     
-    // скрывает плеер
-    @IBAction func dismissButtonAction(_ sender: UIButton) {
-        
-        dismiss(animated: true)
-    }
-    
-    @IBAction func playPauseButtonAction(_ sender: UIButton) {
-        if player.isPlaying {
-            sender.setBackgroundImage(UIImage(systemName: "play.fill"), for: .normal)
-            player.stop()
-        } else {
-            sender.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
-            player.play()
-        }
-    }
-    
     func configurePlayer() {
         do {
             if let audioPath = Bundle.main.path(forResource: track, ofType: "mp3") {
@@ -62,5 +46,21 @@ class PlayerViewController: UIViewController {
             print("Error")
         }
         player.play()
+    }
+    
+    // скрывает плеер
+    @IBAction func dismissButtonAction(_ sender: UIButton) {
+        
+        dismiss(animated: true)
+    }
+    
+    @IBAction func playPauseButtonAction(_ sender: UIButton) {
+        guard player.isPlaying else {
+            sender.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
+            player.play()
+            return
+        }
+        sender.setBackgroundImage(UIImage(systemName: "play.fill"), for: .normal)
+        player.stop()
     }
 }
