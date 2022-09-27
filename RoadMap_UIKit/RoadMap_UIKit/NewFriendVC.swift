@@ -10,19 +10,11 @@ import UIKit
 /// добавляет нового человека к списку друзей
 class NewFriendVC: UIViewController {
     
-    // Линт ругался на длину строки, пришлось дать угла
-    let ages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-                11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+    var birthdayPicker = UIDatePicker()
     
-    let genders = ["Male", "Female", "Not selected"]
+    var agePicker = UIPickerView()
     
-    let newFriendPhoto: UIButton = {
-        let photo = UIButton(type: .custom)
-        photo.setBackgroundImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
-        photo.tintColor = .gray
-        photo.frame = CGRect(x: 105, y: 75, width: 155, height: 155)
-        return photo
-    }()
+    var genderPicker = UIPickerView()
     
     private lazy var cancelButton: UIButton = {
         let button  = UIButton()
@@ -40,6 +32,30 @@ class NewFriendVC: UIViewController {
         button.addTarget(self, action: #selector(addPersonAction), for: .touchUpInside)
         button.frame = CGRect(x: 280, y: 25, width: 90, height: 30)
         return button
+    }()
+    
+    private lazy var instagramTextField: UITextField = {
+        let instagram = UITextField()
+        instagram.textColor = .black
+        instagram.placeholder = "Добавить"
+        instagram.addTarget(self, action: #selector(instagramAlert), for: .allEditingEvents)
+        instagram.font = .systemFont(ofSize: 15, weight: .light)
+        instagram.frame = CGRect(x: 50, y: 640, width: 300, height: 30)
+        return instagram
+    }()
+    
+    // Линт ругался на длину строки, пришлось дать угла
+    let ages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+    
+    let genders = ["Male", "Female", "Not selected"]
+    
+    let newFriendPhotoButton: UIButton = {
+        let photo = UIButton(type: .custom)
+        photo.setBackgroundImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
+        photo.tintColor = .gray
+        photo.frame = CGRect(x: 105, y: 75, width: 155, height: 155)
+        return photo
     }()
     
     let changePhotoLabel: UIButton = {
@@ -131,41 +147,11 @@ class NewFriendVC: UIViewController {
         return instagram
     }()
     
-    private lazy var instagramTextField: UITextField = {
-        let instagram = UITextField()
-        instagram.textColor = .black
-        instagram.placeholder = "Добавить"
-        instagram.addTarget(self, action: #selector(instagramAlert), for: .allEditingEvents)
-        instagram.font = .systemFont(ofSize: 15, weight: .light)
-        instagram.frame = CGRect(x: 50, y: 640, width: 300, height: 30)
-        return instagram
-    }()
-    
     let newPerson = FriendsListVC()
-
-    var birthdayPicker = UIDatePicker()
-    
-    var agePicker = UIPickerView()
-    
-    var genderPicker = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        agePicker.delegate = self
-        agePicker.dataSource = self
-        ageTextField.inputView = agePicker
-        agePicker.tag = 1
-        genderPicker.delegate = self
-        genderPicker.dataSource = self
-        genderTextField.inputView = genderPicker
-        genderPicker.tag = 2
-        addSubviews()
-        nameTextField.setUnderLine()
-        birthdayTextField.setUnderLine()
-        ageTextField.setUnderLine()
-        instagramTextField.setUnderLine()
-        createDatePicker()
+        setupUI()
     }
     
     @objc func toFriendsListAction() {
@@ -201,11 +187,11 @@ class NewFriendVC: UIViewController {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         
-        self.birthdayTextField.text = dateFormatter.string(from: birthdayPicker.date)
-        self.view.endEditing(true)
+        birthdayTextField.text = dateFormatter.string(from: birthdayPicker.date)
+        view.endEditing(true)
     }
     
-    @objc func instagramAlert(_ textField: UITextField) -> Bool {
+    @objc func showInstagramAlertAction(_ textField: UITextField) -> Bool {
         let alert = UIAlertController(title: "Укажите ваш профиль в Instagram", message: nil, preferredStyle: .alert)
         let alertInstaButton = UIAlertAction(title: "OK", style: .default) { _ in
             guard let text = alert.textFields?.first?.text else {
@@ -218,12 +204,12 @@ class NewFriendVC: UIViewController {
         
         alert.addTextField()
         
-        self.present(alert, animated: true)
+        present(alert, animated: true)
         return true
     }
     
-    func addSubviews() {
-        view.addSubview(newFriendPhoto)
+    func setupUI() {
+        view.addSubview(newFriendPhotoButton)
         view.addSubview(cancelButton)
         view.addSubview(addButton)
         view.addSubview(changePhotoLabel)
@@ -237,15 +223,38 @@ class NewFriendVC: UIViewController {
         view.addSubview(genderTextField)
         view.addSubview(instagramLabel)
         view.addSubview(instagramTextField)
+        
+        view.backgroundColor = .white
+        
+        agePicker.delegate = self
+        agePicker.dataSource = self
+        ageTextField.inputView = agePicker
+        agePicker.tag = 1
+        
+        genderPicker.delegate = self
+        genderPicker.dataSource = self
+        genderTextField.inputView = genderPicker
+        genderPicker.tag = 2
+        
+        setUnderlines()
+        createDatePicker()
+    }
+    
+    func setUnderlines() {
+        nameTextField.setUnderLine()
+        birthdayTextField.setUnderLine()
+        ageTextField.setUnderLine()
+        instagramTextField.setUnderLine()
     }
 }
 
+/// Расширение для конфигурации пикеров
  extension NewFriendVC: UIPickerViewDelegate, UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
+     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView.tag {
         case 1:

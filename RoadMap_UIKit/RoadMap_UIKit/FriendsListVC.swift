@@ -10,7 +10,7 @@ import UIKit
 /// экран списка друзей 
 class FriendsListVC: UIViewController {
     
-    let firstFriendPhoto: UIButton = {
+    let firstFriendPhotoButton: UIButton = {
         let photo = UIButton(type: .custom)
         photo.setBackgroundImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
         photo.tintColor = .gray
@@ -44,7 +44,7 @@ class FriendsListVC: UIViewController {
        return days
     }()
     
-    let secondFriendPhoto: UIButton = {
+    let secondFriendPhotoButton: UIButton = {
         let photo = UIButton(type: .custom)
         photo.setBackgroundImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
         photo.tintColor = .gray
@@ -78,7 +78,7 @@ class FriendsListVC: UIViewController {
        return days
     }()
     
-    let thirdFriendPhoto: UIButton = {
+    let thirdFriendPhotoButton: UIButton = {
         let photo = UIButton(type: .custom)
         photo.setBackgroundImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
         photo.tintColor = .gray
@@ -151,37 +151,37 @@ class FriendsListVC: UIViewController {
     }()
     
     func setNavigationBar() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
-            action: #selector(toNewFriendScreen)
+            action: #selector(toNewFriendScreenAction)
         )
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        self.setNavigationBar()
+        setNavigationBar()
         addSubviews()
         setNavigationBar()
     }
     
-    @objc func toNewFriendScreen() {
+    @objc func toNewFriendScreenAction() {
         let newFriend = NewFriendVC()
         newFriend.modalPresentationStyle = .formSheet
-        self.present(newFriend, animated: true, completion: nil)
+        present(newFriend, animated: true, completion: nil)
     }
     
     func addSubviews() {
-        view.addSubview(firstFriendPhoto)
+        view.addSubview(firstFriendPhotoButton)
         view.addSubview(firstFriendNameLabel)
         view.addSubview(firstFriendBirthdayLabel)
         view.addSubview(daysToFirstFriendBirtdayLabel)
-        view.addSubview(secondFriendPhoto)
+        view.addSubview(secondFriendPhotoButton)
         view.addSubview(secondFriendNameLabel)
         view.addSubview(secondFriendBirthdayLabel)
         view.addSubview(daysToSecondFrindBirtdayLabel)
-        view.addSubview(thirdFriendPhoto)
+        view.addSubview(thirdFriendPhotoButton)
         view.addSubview(thirdFriendNameLabel)
         view.addSubview(thirdFriendBirthdayLabel)
         view.addSubview(daysToThirdFrindBirtdayLabel)

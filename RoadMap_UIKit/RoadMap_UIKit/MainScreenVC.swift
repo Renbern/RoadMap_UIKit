@@ -69,7 +69,7 @@ class MainScreenVC: UIViewController {
         let button = UIButton()
         button.setBackgroundImage(UIImage(systemName: "eye.fill"), for: .normal)
         button.tintColor = .lightGray
-        button.addTarget(self, action: #selector(showHidePassword), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showHidePasswordAction), for: .touchUpInside)
         button.frame = CGRect(x: 300, y: 440, width: 40, height: 25)
         return button
     }()
@@ -86,7 +86,7 @@ class MainScreenVC: UIViewController {
     let faceIdSwitch: UISwitch = {
         let faceSwitch = UISwitch()
         faceSwitch.frame = CGRect(x: 280, y: 520, width: 60, height: 40)
-       return faceSwitch
+        return faceSwitch
     }()
 
     private lazy var enterButton: UIButton = {
@@ -95,19 +95,16 @@ class MainScreenVC: UIViewController {
         enter.backgroundColor = .systemCyan
         enter.frame = CGRect(x: 100, y: 680, width: 200, height: 50)
         enter.layer.cornerRadius = 10
-        enter.addTarget(self, action: #selector(toTheFriendsList), for: .touchUpInside)
+        enter.addTarget(self, action: #selector(toTheFriendsListAction), for: .touchUpInside)
         return enter
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.setUnderLine()
-        passwordTextField.setUnderLine()
-        addSubviews()
-        view.backgroundColor = .white
+        setupUI()
     }
 
-    func addSubviews() {
+    func setupUI() {
         view.addSubview(appNameLabel)
         view.addSubview(signInLabel)
         view.addSubview(emailLabel)
@@ -118,15 +115,22 @@ class MainScreenVC: UIViewController {
         view.addSubview(faceIdSwitch)
         view.addSubview(enterButton)
         view.addSubview(eyeButton)
+        view.backgroundColor = .white
+        setUnderlines()
     }
     
-    @objc func toTheFriendsList() {
+    func setUnderlines() {
+        emailTextField.setUnderLine()
+        passwordTextField.setUnderLine()
+    }
+    
+    @objc func toTheFriendsListAction() {
         let friendsList = FriendsListVC()
         friendsList.title = "Birthday"
-        self.navigationController?.pushViewController(friendsList, animated: true)
+        navigationController?.pushViewController(friendsList, animated: true)
     }
     
-    @objc func showHidePassword() {
+    @objc func showHidePasswordAction() {
         if passwordTextField.isSecureTextEntry {
             passwordTextField.isSecureTextEntry = false
             eyeButton.setBackgroundImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
