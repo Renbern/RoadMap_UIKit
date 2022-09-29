@@ -7,17 +7,17 @@
 
 import UIKit
 
-/// ViewController
-class GrandmotherViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+/// Главынй экран приложения"
+class GrandmotherViewController: UIViewController {
+    
+    @IBOutlet weak var postcardImageView: UIImageView!
+    
+    @IBOutlet weak var relativeTextField: UITextField!
     
     var buttonShare = UIButton()
     var activityViewController: UIActivityViewController?
     var relatives = ["Старшая дочь", "Младшая дочь", "Внук"]
     var relativesPicker = UIPickerView()
-
-    @IBOutlet weak var postcardImageView: UIImageView!
-    
-    @IBOutlet weak var relativeTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,10 @@ class GrandmotherViewController: UIViewController, UITextFieldDelegate, UIPicker
     }
     
     // MARK: - Methods
+    
+    @IBAction func shareButtonAction(_ sender: AnyObject) {
+        sender.addTarget(self, action: #selector(handleShareAction), for: .touchUpInside)
+    }
     
     // конфигурация алерт контроллера
     @objc func handleShareAction(paramSender: Any) {
@@ -44,10 +48,6 @@ class GrandmotherViewController: UIViewController, UITextFieldDelegate, UIPicker
         showActivityController()
     }
     
-    @IBAction func shareButtonAction(_ sender: AnyObject) {
-        sender.addTarget(self, action: #selector(handleShareAction), for: .touchUpInside)
-    }
-    
     func showActivityController() {
         activityViewController = UIActivityViewController(
             activityItems: [
@@ -60,9 +60,7 @@ class GrandmotherViewController: UIViewController, UITextFieldDelegate, UIPicker
             UIActivity.ActivityType.airDrop,
             UIActivity.ActivityType.postToFacebook
         ]
-        guard let activity = activityViewController else {
-            return
-        }
+        guard let activity = activityViewController else { return }
         present(activity, animated: true)
     }
     
@@ -87,4 +85,8 @@ class GrandmotherViewController: UIViewController, UITextFieldDelegate, UIPicker
         relativeTextField.resignFirstResponder()
         showActivityController()
     }
+}
+
+// MARK: - Extension для доступа к методам делегатов
+extension GrandmotherViewController: UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 }
