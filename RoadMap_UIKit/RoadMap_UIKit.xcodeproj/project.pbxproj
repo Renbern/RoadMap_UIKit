@@ -7,23 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0424D6C928E649D900AB86A0 /* CaloriesInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424D6C828E649D900AB86A0 /* CaloriesInfoViewController.swift */; };
+		044731AE28E4D2E400020976 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044731AD28E4D2E400020976 /* FoodViewController.swift */; };
+		044731B028E4D71400020976 /* PizzaChoiseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044731AF28E4D71400020976 /* PizzaChoiseViewController.swift */; };
+		044731B228E4E5C100020976 /* IngridientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044731B128E4E5C100020976 /* IngridientsViewController.swift */; };
 		047A73D128DAFF9300AFFA3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A73D028DAFF9300AFFA3F /* AppDelegate.swift */; };
 		047A73D328DAFF9300AFFA3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A73D228DAFF9300AFFA3F /* SceneDelegate.swift */; };
-		047A73D528DAFF9300AFFA3F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A73D428DAFF9300AFFA3F /* ViewController.swift */; };
+		047A73D528DAFF9300AFFA3F /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A73D428DAFF9300AFFA3F /* MainScreenViewController.swift */; };
 		047A73D828DAFF9300AFFA3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047A73D628DAFF9300AFFA3F /* Main.storyboard */; };
 		047A73DA28DAFF9500AFFA3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047A73D928DAFF9500AFFA3F /* Assets.xcassets */; };
 		047A73DD28DAFF9500AFFA3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047A73DB28DAFF9500AFFA3F /* LaunchScreen.storyboard */; };
+		04C54EAE28E601470007F255 /* Pizza.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C54EAD28E601470007F255 /* Pizza.swift */; };
+		04C54EB028E609860007F255 /* OrderViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C54EAF28E609860007F255 /* OrderViewControler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0424D6C828E649D900AB86A0 /* CaloriesInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriesInfoViewController.swift; sourceTree = "<group>"; };
+		044731AD28E4D2E400020976 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		044731AF28E4D71400020976 /* PizzaChoiseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaChoiseViewController.swift; sourceTree = "<group>"; };
+		044731B128E4E5C100020976 /* IngridientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientsViewController.swift; sourceTree = "<group>"; };
 		047A73CD28DAFF9300AFFA3F /* RoadMap_UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadMap_UIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047A73D028DAFF9300AFFA3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		047A73D228DAFF9300AFFA3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		047A73D428DAFF9300AFFA3F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		047A73D428DAFF9300AFFA3F /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		047A73D728DAFF9300AFFA3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		047A73D928DAFF9500AFFA3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		047A73DC28DAFF9500AFFA3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047A73DE28DAFF9500AFFA3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04C54EAD28E601470007F255 /* Pizza.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pizza.swift; sourceTree = "<group>"; };
+		04C54EAF28E609860007F255 /* OrderViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewControler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +70,13 @@
 			children = (
 				047A73D028DAFF9300AFFA3F /* AppDelegate.swift */,
 				047A73D228DAFF9300AFFA3F /* SceneDelegate.swift */,
-				047A73D428DAFF9300AFFA3F /* ViewController.swift */,
+				04C54EAD28E601470007F255 /* Pizza.swift */,
+				047A73D428DAFF9300AFFA3F /* MainScreenViewController.swift */,
+				044731AD28E4D2E400020976 /* FoodViewController.swift */,
+				044731AF28E4D71400020976 /* PizzaChoiseViewController.swift */,
+				044731B128E4E5C100020976 /* IngridientsViewController.swift */,
+				0424D6C828E649D900AB86A0 /* CaloriesInfoViewController.swift */,
+				04C54EAF28E609860007F255 /* OrderViewControler.swift */,
 				047A73D628DAFF9300AFFA3F /* Main.storyboard */,
 				047A73D928DAFF9500AFFA3F /* Assets.xcassets */,
 				047A73DB28DAFF9500AFFA3F /* LaunchScreen.storyboard */,
@@ -172,9 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				047A73D528DAFF9300AFFA3F /* ViewController.swift in Sources */,
+				0424D6C928E649D900AB86A0 /* CaloriesInfoViewController.swift in Sources */,
+				04C54EAE28E601470007F255 /* Pizza.swift in Sources */,
+				047A73D528DAFF9300AFFA3F /* MainScreenViewController.swift in Sources */,
+				04C54EB028E609860007F255 /* OrderViewControler.swift in Sources */,
 				047A73D128DAFF9300AFFA3F /* AppDelegate.swift in Sources */,
+				044731AE28E4D2E400020976 /* FoodViewController.swift in Sources */,
+				044731B028E4D71400020976 /* PizzaChoiseViewController.swift in Sources */,
 				047A73D328DAFF9300AFFA3F /* SceneDelegate.swift in Sources */,
+				044731B228E4E5C100020976 /* IngridientsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
