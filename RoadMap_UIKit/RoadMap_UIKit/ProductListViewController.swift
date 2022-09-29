@@ -28,19 +28,19 @@ class ProductViewController: UIViewController {
     }()
     
     private lazy var firstProductImageButton: UIButton = {
-        let image = UIButton()
-        image.setBackgroundImage(UIImage(named: "Cyberpunk2077_PS4"), for: .normal)
-        image.frame = CGRect(x: 25, y: 145, width: 150, height: 200)
-        image.addTarget(self, action: #selector(toProductDetailsAction), for: .touchUpInside)
-        return image
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "Cyberpunk2077_PS4"), for: .normal)
+        button.frame = CGRect(x: 25, y: 145, width: 150, height: 200)
+        button.addTarget(self, action: #selector(toProductDetailsAction), for: .touchUpInside)
+        return button
     }()
     
     private lazy var secondProductImageButton: UIButton = {
-        let image = UIButton()
-        image.setBackgroundImage(UIImage(named: "ItTakesTwo_PS4"), for: .normal)
-        image.frame = CGRect(x: 25, y: 445, width: 150, height: 200)
-        image.addTarget(self, action: #selector(showNotAvailableAlertAction), for: .touchUpInside)
-        return image
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "ItTakesTwo_PS4"), for: .normal)
+        button.frame = CGRect(x: 25, y: 445, width: 150, height: 200)
+        button.addTarget(self, action: #selector(showNotAvailableAlertAction), for: .touchUpInside)
+        return button
     }()
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class ProductViewController: UIViewController {
     @objc func toProductDetailsAction() {
         let productDetails = ProductDetailsViewController()
         productDetails.modalPresentationStyle = .formSheet
-        self.present(productDetails, animated: true, completion: nil)
+        present(productDetails, animated: true, completion: nil)
     }
     
     @objc func showNotAvailableAlertAction() {

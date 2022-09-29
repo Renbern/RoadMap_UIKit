@@ -31,16 +31,14 @@ class MainScreenViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupUI()
-        view.addSubview(showHidePasswordButton)
     }
     
     // Метод перехода на следующий экран
-    @objc func toProductListAction() {
+    @objc func routeToProductListAction() {
         let productList = ProductViewController()
         navigationController?.pushViewController(productList, animated: true)
     }
     
-    // Функционал кнопки скрыть/показать пароль
     @objc func showHidePasswordButtonAction() {
         if passwordTextField.isSecureTextEntry {
             passwordTextField.isSecureTextEntry = false
@@ -101,11 +99,10 @@ class MainScreenViewController: UIViewController {
         signInButton.setTitleColor(.white, for: .normal)
         signInButton.backgroundColor = .systemGray2
         signInButton.layer.cornerRadius = 10
-        signInButton.addTarget(self, action: #selector(toProductListAction), for: .touchUpInside)
+        signInButton.addTarget(self, action: #selector(routeToProductListAction), for: .touchUpInside)
         signInButton.frame = CGRect(x: 50, y: 650, width: 300, height: 70)
         view.addSubview(signInButton)
     }
-    
     
     func setupUI() {
         configureAppLogoImage()

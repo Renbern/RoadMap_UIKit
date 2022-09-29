@@ -51,7 +51,7 @@ class ProductDetailsViewController: UIViewController {
         return label
     }()
     
-    let quantityOfPoints: UILabel = {
+    let numberOfPointsLabel: UILabel = {
         let quantity = UILabel()
         quantity.text = ""
         quantity.isHidden = true
@@ -74,7 +74,7 @@ class ProductDetailsViewController: UIViewController {
         return points
     }()
     
-    private lazy var pointsToDeduct: UISlider = {
+    private lazy var pointsToDeductSlider: UISlider = {
         let points = UISlider()
         points.frame = CGRect(x: 55, y: 645, width: 290, height: 20)
         points.tintColor = .systemOrange
@@ -106,10 +106,10 @@ class ProductDetailsViewController: UIViewController {
     }
     
     @objc func pointsSliderValueDidChangeAction(sender: UISlider) {
-        quantityOfPoints.text = "\(Int(sender.value))"
+        numberOfPointsLabel.text = "\(Int(sender.value))"
     }
     
-    @objc func selectImage(target: UISegmentedControl) {
+    @objc func selectImageAction(target: UISegmentedControl) {
         if target == segmentControl {
             let segmentIndex = target.selectedSegmentIndex
             imageView.image = products[segmentIndex]
@@ -119,12 +119,12 @@ class ProductDetailsViewController: UIViewController {
     @objc func showSliderAction() {
         if pointsDeductSwitch.isOn {
             quantityOfPointsLabel.isHidden = false
-            quantityOfPoints.isHidden = false
-            pointsToDeduct.isHidden = false
+            quantityOfPointsLabel.isHidden = false
+            numberOfPointsLabel.isHidden = false
         } else {
             quantityOfPointsLabel.isHidden = true
-            quantityOfPoints.isHidden = true
-            pointsToDeduct.isHidden = true
+            quantityOfPointsLabel.isHidden = true
+            numberOfPointsLabel.isHidden = true
         }
     }
     
@@ -146,8 +146,8 @@ class ProductDetailsViewController: UIViewController {
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         
-        self.rentDateTextField.text = dateFormatter.string(from: rentDatePicker.date)
-        self.view.endEditing(true)
+        rentDateTextField.text = dateFormatter.string(from: rentDatePicker.date)
+        view.endEditing(true)
     }
     
     func toProductList() {
@@ -182,7 +182,7 @@ class ProductDetailsViewController: UIViewController {
         segmentControl = UISegmentedControl(items: self.segmentItems)
         segmentControl.frame = CGRect(x: 35, y: 460, width: 320, height: 30)
         view.addSubview(self.segmentControl)
-        segmentControl.addTarget(self, action: #selector(selectImage), for: .valueChanged)
+        segmentControl.addTarget(self, action: #selector(selectImageAction), for: .valueChanged)
     }
     
     func setupUI() {
@@ -192,9 +192,9 @@ class ProductDetailsViewController: UIViewController {
         view.addSubview(rentDateLabel)
         view.addSubview(pointsDeductLabel)
         view.addSubview(pointsDeductSwitch)
-        view.addSubview(pointsToDeduct)
-        view.addSubview(quantityOfPoints)
+        view.addSubview(pointsToDeductSlider)
         view.addSubview(quantityOfPointsLabel)
+        view.addSubview(numberOfPointsLabel)
         view.addSubview(toRentButton)
     }
     
