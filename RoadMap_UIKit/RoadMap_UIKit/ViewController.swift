@@ -22,9 +22,7 @@ final class ViewController: UIViewController {
     // MARK: - Public methods
     // MARK: - IBActions
     // MARK: - Private methods
-    private func setupUI() {
-        view.backgroundColor = .white
-        
+    private func setupUI() {       
         setUnderlines()
     }
     

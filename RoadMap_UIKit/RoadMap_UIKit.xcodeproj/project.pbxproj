@@ -13,7 +13,10 @@
 		047A73D828DAFF9300AFFA3F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047A73D628DAFF9300AFFA3F /* Main.storyboard */; };
 		047A73DA28DAFF9500AFFA3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047A73D928DAFF9500AFFA3F /* Assets.xcassets */; };
 		047A73DD28DAFF9500AFFA3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047A73DB28DAFF9500AFFA3F /* LaunchScreen.storyboard */; };
+		04E9A95428E8277D004005DE /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E9A95328E8277D004005DE /* TimerViewController.swift */; };
 		04F67F9728E748B500F3989F /* UIControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F67F9628E748B500F3989F /* UIControl+Extension.swift */; };
+		04F67F9A28E8246D00F3989F /* Alarm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F67F9828E8246D00F3989F /* Alarm.storyboard */; };
+		04F67F9C28E824A400F3989F /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04F67F9B28E824A400F3989F /* Timer.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +28,10 @@
 		047A73D928DAFF9500AFFA3F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		047A73DC28DAFF9500AFFA3F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047A73DE28DAFF9500AFFA3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E9A95328E8277D004005DE /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		04F67F9628E748B500F3989F /* UIControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Extension.swift"; sourceTree = "<group>"; };
+		04F67F9928E8246D00F3989F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = RoadMap_UIKit/Base.lproj/Alarm.storyboard; sourceTree = "<group>"; };
+		04F67F9B28E824A400F3989F /* Timer.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +64,14 @@
 		047A73CF28DAFF9300AFFA3F /* RoadMap_UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				047A73D628DAFF9300AFFA3F /* Main.storyboard */,
+				04F67F9828E8246D00F3989F /* Alarm.storyboard */,
+				04F67F9B28E824A400F3989F /* Timer.storyboard */,
 				047A73D028DAFF9300AFFA3F /* AppDelegate.swift */,
 				047A73D228DAFF9300AFFA3F /* SceneDelegate.swift */,
 				047A73D428DAFF9300AFFA3F /* ViewController.swift */,
+				04E9A95328E8277D004005DE /* TimerViewController.swift */,
 				04F67F9628E748B500F3989F /* UIControl+Extension.swift */,
-				047A73D628DAFF9300AFFA3F /* Main.storyboard */,
 				047A73D928DAFF9500AFFA3F /* Assets.xcassets */,
 				047A73DB28DAFF9500AFFA3F /* LaunchScreen.storyboard */,
 				047A73DE28DAFF9500AFFA3F /* Info.plist */,
@@ -140,6 +149,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F67F9C28E824A400F3989F /* Timer.storyboard in Resources */,
+				04F67F9A28E8246D00F3989F /* Alarm.storyboard in Resources */,
 				047A73DD28DAFF9500AFFA3F /* LaunchScreen.storyboard in Resources */,
 				047A73DA28DAFF9500AFFA3F /* Assets.xcassets in Resources */,
 				047A73D828DAFF9300AFFA3F /* Main.storyboard in Resources */,
@@ -175,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E9A95428E8277D004005DE /* TimerViewController.swift in Sources */,
 				047A73D528DAFF9300AFFA3F /* ViewController.swift in Sources */,
 				047A73D128DAFF9300AFFA3F /* AppDelegate.swift in Sources */,
 				047A73D328DAFF9300AFFA3F /* SceneDelegate.swift in Sources */,
@@ -199,6 +211,14 @@
 				047A73DC28DAFF9500AFFA3F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		04F67F9828E8246D00F3989F /* Alarm.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04F67F9928E8246D00F3989F /* Base */,
+			);
+			name = Alarm.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
