@@ -7,12 +7,12 @@
 
 import UIKit
 
-/// Ghjnjrjk gtht[jlf yf henjdsq dc
-protocol PopToRootVC: AnyObject {
+// Протокол для перехода на рутовый контроллер
+protocol PopToRootDelegate: AnyObject {
     func goToRootViewController()
 }
 
-// выбираем ингридиенты для пиццы
+// MARK: - выбираем ингридиенты для пиццы
 class IngridientsViewController: UIViewController {
     
     // MARK: - UI Elements
@@ -30,19 +30,41 @@ class IngridientsViewController: UIViewController {
     var oliveSwitch = UISwitch()
     var selectIngridientsButton = UIButton()
     let caloriesInfoButton = UIButton()
-    
+
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    func configuratePizzaImageView() {
+// MARK: - Private method
+    @objc private func toOrderDetailsAction() {
+        additionalIngridients()
+        let orderVC = OrderViewController()
+        let secondNavigationController = UINavigationController(rootViewController: orderVC)
+        orderVC.title = "Оплата"
+        orderVC.pizza = pizza
+        
+        secondNavigationController.modalPresentationStyle = .fullScreen
+        orderVC.delegate = self
+        present(secondNavigationController, animated: true)
+    }
+    
+    @objc private func toCaloriesInfoAction(_ sender: UIButton) {
+        let caloriesVC = CaloriesInfoViewController()
+        caloriesVC.pizza = pizza
+        caloriesVC.view.backgroundColor = .white
+        caloriesVC.modalPresentationStyle = .popover
+        present(caloriesVC, animated: true)
+    }
+    
+    private func configuratePizzaImageView() {
         pizzaImageView.frame = CGRect(x: 70, y: 70, width: 250, height: 250)
         pizzaImageView.image = UIImage(named: pizza.pizzaImage ?? "")
         view.addSubview(pizzaImageView)
     }
     
-    func configuratePizzaLabel() {
+    private func configuratePizzaLabel() {
         pizzaLabel.text = pizza.name
         pizzaLabel.frame = CGRect(
             x: pizzaImageView.frame.midX - 80,
@@ -53,55 +75,55 @@ class IngridientsViewController: UIViewController {
         view.addSubview(pizzaLabel)
     }
     
-    func configurateMozarellaLabel() {
+    private func configurateMozarellaLabel() {
         mozarellaLabel.text = "Сыр моцарелла"
         mozarellaLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         mozarellaLabel.frame = CGRect(x: 35, y: 350, width: 200, height: 30)
         view.addSubview(mozarellaLabel)
     }
     
-    func configurateMozarellaSwitch() {
+    private func configurateMozarellaSwitch() {
         mozarellaSwitch.frame = CGRect(x: 280, y: 350, width: 45, height: 20)
         view.addSubview(mozarellaSwitch)
     }
     
-    func configurateHamLabel() {
+    private func configurateHamLabel() {
         hamLabel.text = "Ветчина"
         hamLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         hamLabel.frame = CGRect(x: 35, y: 410, width: 200, height: 30)
         view.addSubview(hamLabel)
     }
     
-    func configurateHamSwitch() {
+    private func configurateHamSwitch() {
         hamSwitch.frame = CGRect(x: 280, y: 410, width: 45, height: 20)
         view.addSubview(hamSwitch)
     }
     
-    func configurateMashroomLabel() {
+    private func configurateMashroomLabel() {
         mashroomLabel.text = "Грибы"
         mashroomLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         mashroomLabel.frame = CGRect(x: 35, y: 470, width: 200, height: 30)
         view.addSubview(mashroomLabel)
     }
     
-    func configurateMashroomSwitch() {
+    private func configurateMashroomSwitch() {
         mashroomSwitch.frame = CGRect(x: 280, y: 470, width: 45, height: 20)
         view.addSubview(mashroomSwitch)
     }
     
-    func configurateOliveLabel() {
+    private func configurateOliveLabel() {
         oliveLabel.text = "Маслины"
         oliveLabel.font = .systemFont(ofSize: 20, weight: .semibold)
         oliveLabel.frame = CGRect(x: 35, y: 530, width: 200, height: 30)
         view.addSubview(oliveLabel)
     }
     
-    func configurateOliveSwitch() {
+    private func configurateOliveSwitch() {
         oliveSwitch.frame = CGRect(x: 280, y: 530, width: 45, height: 20)
         view.addSubview(oliveSwitch)
     }
     
-    func configurateSelectIngridientsButton() {
+    private func configurateSelectIngridientsButton() {
         selectIngridientsButton.setTitle("Выбрать", for: .normal)
         selectIngridientsButton.backgroundColor = .orange
         selectIngridientsButton.frame = CGRect(x: 25, y: 650, width: 350, height: 55)
@@ -117,35 +139,15 @@ class IngridientsViewController: UIViewController {
         pizza.olives = oliveSwitch.isOn
     }
     
-    @objc func toOrderDetailsAction() {
-        additionalIngridients()
-        let orderVC = OrderViewController()
-        let secondNavigationController = UINavigationController(rootViewController: orderVC)
-        orderVC.title = "Оплата"
-        orderVC.pizza = pizza
-        
-        secondNavigationController.modalPresentationStyle = .fullScreen
-        orderVC.delegate = self
-        present(secondNavigationController, animated: true)
-    }
-    
-    func configurateCaloriesButton() {
+    private func configurateCaloriesButton() {
         caloriesInfoButton.setBackgroundImage(UIImage(systemName: "info.circle"), for: .normal)
         caloriesInfoButton.frame = CGRect(x: 330, y: 27, width: 30, height: 30)
         caloriesInfoButton.tintColor = .orange
         caloriesInfoButton.addTarget(self, action: #selector(toCaloriesInfoAction(_:)), for: .touchUpInside)
         view.addSubview(caloriesInfoButton)
     }
-    
-    @objc func toCaloriesInfoAction(_ sender: UIButton) {
-        let caloriesVC = CaloriesInfoViewController()
-        caloriesVC.pizza = pizza
-        caloriesVC.view.backgroundColor = .white
-        caloriesVC.modalPresentationStyle = .popover
-        present(caloriesVC, animated: true)
-    }
-    
-    func setupUI() {
+        
+    private func setupUI() {
         view.backgroundColor = .white
         
         configuratePizzaImageView()
@@ -164,10 +166,10 @@ class IngridientsViewController: UIViewController {
 }
 
 // MARK: - для перехода на второй экран
-extension IngridientsViewController: PopToRootVC {
+extension IngridientsViewController: PopToRootDelegate {
     func goToRootViewController() {
         if let presentingViewController = presentingViewController as? UINavigationController {
-            self.view.isHidden = true
+            view.isHidden = true
             dismiss(animated: false)
             presentingViewController.popToRootViewController(animated: false)
         }

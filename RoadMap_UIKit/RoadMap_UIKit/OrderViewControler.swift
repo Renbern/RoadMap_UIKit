@@ -7,10 +7,10 @@
 
 import UIKit
 
-/// Видим детали заказа, выбираем способ оплаты и оплачиваем
+// MARK: - Детали заказа, выбираем способ оплаты и оплачиваем
 class OrderViewController: UIViewController {
     
-    weak var delegate: PopToRootVC?
+    weak var delegate: PopToRootDelegate?
     
     var pizza: Pizza?
     
@@ -49,21 +49,14 @@ class OrderViewController: UIViewController {
         return cashPay
     }()
     
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    func configuratePaymentButton() {
-        paymentButton.setTitle(" \u{F8FF} Pay", for: .normal)
-        paymentButton.backgroundColor = .black
-        paymentButton.layer.cornerRadius = 10
-        paymentButton.addTarget(self, action: #selector(showPaymentAlertControllerAction), for: .touchUpInside)
-        paymentButton.frame = CGRect(x: 25, y: 650, width: 350, height: 55)
-        view.addSubview(paymentButton)
-    }
-    
-    @objc func showPaymentAlertControllerAction() {
+// MARK: - Private methods
+    @objc private func showPaymentAlertControllerAction() {
         let showPaymentAlertController = UIAlertController(
             title: "Заказ оплачен",
             message: "Ваш заказ доставят в течении 16 минут! Приятного аппетита!",
@@ -81,7 +74,15 @@ class OrderViewController: UIViewController {
         present(showPaymentAlertController, animated: true)
     }
     
-    @objc func giveReview() {
+    @objc private func toggleCashCardSwitch(_ sender: UISwitch) {
+        if cardPaySwitch === sender {
+            cashPaySwitch.isOn.toggle()
+        } else {
+            cardPaySwitch.isOn.toggle()
+        }
+    }
+    
+    @objc private func giveReview() {
         let giveReviewAlertController = UIAlertController(
             title: "Нам важен ваш отзыв!",
             message: "Пожалуйста опишите ваши впечатления от нашей пиццерии!",
@@ -96,7 +97,16 @@ class OrderViewController: UIViewController {
         present(giveReviewAlertController, animated: true)
     }
     
-    func configurateOrderDetailsLabel() {
+    private func configuratePaymentButton() {
+        paymentButton.setTitle(" \u{F8FF} Pay", for: .normal)
+        paymentButton.backgroundColor = .black
+        paymentButton.layer.cornerRadius = 10
+        paymentButton.addTarget(self, action: #selector(showPaymentAlertControllerAction), for: .touchUpInside)
+        paymentButton.frame = CGRect(x: 25, y: 650, width: 350, height: 55)
+        view.addSubview(paymentButton)
+    }
+    
+    private func configurateOrderDetailsLabel() {
         var order = ""
         if let pizza = pizza {
             order += "Ваша пицца: \(pizza.name ?? "")\n"
@@ -113,15 +123,7 @@ class OrderViewController: UIViewController {
         view.addSubview(orderDetailsLabel)
     }
     
-    @objc func toggleCashCardSwitch(_ sender: UISwitch) {
-        if cardPaySwitch === sender {
-            cashPaySwitch.isOn.toggle()
-        } else {
-            cardPaySwitch.isOn.toggle()
-        }
-    }
-    
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .white
         cashPaySwitch.isOn = true
 

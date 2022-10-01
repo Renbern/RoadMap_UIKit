@@ -7,7 +7,7 @@
 
 import UIKit
 
-// выбирает пиццу
+// MARK: -  Экран выбора пиццы
 class PizzaChoiseViewController: UIViewController {
     
     // MARK: - UI Elements
@@ -28,17 +28,17 @@ class PizzaChoiseViewController: UIViewController {
             olives: false
         )]
     
-    let pepperoniImageView = UIImageView()
+    private let pepperoniImageView = UIImageView()
     
-    let pepperoniLabel = UILabel()
+    private let pepperoniLabel = UILabel()
     
-    let margaritaImageView = UIImageView()
+    private let margaritaImageView = UIImageView()
     
-    let margaritaLabel = UILabel()
+    private let margaritaLabel = UILabel()
     
-    let selectPepperoniButton = UIButton()
+    private let selectPepperoniButton = UIButton()
     
-    let selectMargaritaButton = UIButton()
+    private let selectMargaritaButton = UIButton()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -47,13 +47,26 @@ class PizzaChoiseViewController: UIViewController {
     }
     
     // MARK: - Private methods
-    func configuratePepperoniImage() {
+    @objc private func toIngridientsAction(_ sender: UIButton) {
+        let ingridientsVC = IngridientsViewController()
+        switch sender.tag {
+        case 0...1:
+            ingridientsVC.pizza.pizzaImage = pizza[sender.tag].pizzaImage
+            ingridientsVC.pizza.name = pizza[sender.tag].name
+            ingridientsVC.modalPresentationStyle = .formSheet
+            present(ingridientsVC, animated: true)
+        default:
+            break
+        }
+    }
+    
+    private func configuratePepperoniImage() {
         pepperoniImageView.image = UIImage(named: pizza[0].pizzaImage ?? "")
         pepperoniImageView.frame = CGRect(x: 25, y: 200, width: 100, height: 100)
         view.addSubview(pepperoniImageView)
     }
     
-    func configuratePepperoniLabel() {
+    private func configuratePepperoniLabel() {
         pepperoniLabel.text = pizza[0].name
         pepperoniLabel.font = .systemFont(ofSize: 25, weight: .medium)
         pepperoniLabel.textColor = .black
@@ -66,13 +79,13 @@ class PizzaChoiseViewController: UIViewController {
         view.addSubview(pepperoniLabel)
     }
     
-    func configurateMargaritaImage() {
+    private func configurateMargaritaImage() {
         margaritaImageView.image = UIImage(named: pizza[1].pizzaImage ?? "")
         margaritaImageView.frame = CGRect(x: 25, y: 380, width: 100, height: 100)
         view.addSubview(margaritaImageView)
     }
     
-    func configurateMargaritaLabel() {
+    private func configurateMargaritaLabel() {
         margaritaLabel.text = pizza[1].name
         margaritaLabel.font = .systemFont(ofSize: 25, weight: .medium)
         margaritaLabel.textColor = .black
@@ -85,7 +98,7 @@ class PizzaChoiseViewController: UIViewController {
         view.addSubview(margaritaLabel)
     }
     
-    func configurateSelectPepperoniButton() {
+    private func configurateSelectPepperoniButton() {
         selectPepperoniButton.tintColor = .orange
         selectPepperoniButton.setBackgroundImage(UIImage(systemName: "plus.app.fill"), for: .normal)
         selectPepperoniButton.frame = CGRect(
@@ -98,7 +111,7 @@ class PizzaChoiseViewController: UIViewController {
         view.addSubview(selectPepperoniButton)
     }
     
-    func configurateSelectMargaritaButton() {
+    private func configurateSelectMargaritaButton() {
         selectMargaritaButton.tintColor = .orange
         selectMargaritaButton.setBackgroundImage(UIImage(systemName: "plus.app.fill"), for: .normal)
         selectMargaritaButton.frame = CGRect(
@@ -114,32 +127,19 @@ class PizzaChoiseViewController: UIViewController {
         view.addSubview(selectMargaritaButton)
     }
     
-    func setupButtonTag() {
+    private func setupButtonTag() {
         selectPepperoniButton.tag = 0
         selectMargaritaButton.tag = 1
     }
     
-    @objc func toIngridientsAction(_ sender: UIButton) {
-        let ingridientsVC = IngridientsViewController()
-        switch sender.tag {
-        case 0...1:
-            ingridientsVC.pizza.pizzaImage = pizza[sender.tag].pizzaImage
-            ingridientsVC.pizza.name = pizza[sender.tag].name
-            ingridientsVC.modalPresentationStyle = .formSheet
-            present(ingridientsVC, animated: true)
-        default:
-            break
-        }
-    }
-    
-    func customBackButton() {
+    private func customBackButton() {
         let backButton = UIBarButtonItem()
         backButton.image = UIImage(systemName: "chevron.left")
         backButton.tintColor = .black
         navigationController?.navigationBar.topItem?.backButtonDisplayMode = .minimal
     }
     
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .white
         title = "Pizza"
         

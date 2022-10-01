@@ -7,33 +7,33 @@
 
 import UIKit
 
-/// экран показа калорий пиццы
-class CaloriesInfoViewController: UIViewController {
+// MARK: - экран показа калорий пиццы
+final class CaloriesInfoViewController: UIViewController {
     
     var pizza: Pizza?
     
-    let pizzaLabel = UILabel()
+    private let pizzaLabel = UILabel()
     
-    let caloriesLabel = UILabel()
+    private let caloriesLabel = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    func setupUI() {
+    private func setupUI() {
         configuratePizzaLabel()
         configurateCaloriesLabel()
     }
     
-    func configuratePizzaLabel() {
+    private func configuratePizzaLabel() {
         pizzaLabel.text = pizza?.name
         pizzaLabel.frame = CGRect(x: 50, y: 100, width: 500, height: 50)
         pizzaLabel.font = .systemFont(ofSize: 45, weight: .heavy)
         view.addSubview(pizzaLabel)
     }
     
-    func configurateCaloriesLabel() {
+    private func configurateCaloriesLabel() {
         if pizzaLabel.text == "Пепперони" {
             caloriesLabel.text = "1600 ккал\n 20 г. белков\n 164 г. жиров\n 530 г. углеводов"
         } else {

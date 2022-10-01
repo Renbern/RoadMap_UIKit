@@ -6,10 +6,10 @@
 
 import UIKit
 
-/// ViewController
+/// Основной экран приложения
 class MainScreenViewController: UIViewController {
     
-    // MARK: - UI Elements
+// MARK: - UI Elements
     
     let pizzaLogoImageView = UIImageView()
     
@@ -23,13 +23,13 @@ class MainScreenViewController: UIViewController {
     
     let signInButton = UIButton()
     
-    // MARK: - Lifecycle
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    // MARK: - Private methods
+// MARK: - Private methods
     private func setupUI() {
         view.backgroundColor = .white
         
@@ -112,7 +112,7 @@ extension UIControl {
             height: self.frame.size.height
         )
         border.borderWidth = width
-        self.layer.addSublayer(border)
-        self.layer.masksToBounds = true
+        layer.addSublayer(border)
+        layer.masksToBounds = true
     }
 }

@@ -7,19 +7,27 @@
 
 import UIKit
 
-/// экран выбора категории еды
-class FoodViewController: UIViewController {
+// MARK: - экран выбора категории еды
+final class FoodViewController: UIViewController {
     
-    let pizzaButton = UIButton()
+    private let pizzaButton = UIButton()
     
-    let sushiButton = UIButton()
-    
+    private let sushiButton = UIButton()
+
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
+
+// MARK: - Private properties
+    @objc private func toPizzaChoise() {
+        let pizzaChoiseVC = PizzaChoiseViewController()
+        pizzaChoiseVC.title = "Pizza"
+        navigationController?.pushViewController(pizzaChoiseVC, animated: true)
+    }
     
-    func configuratePizzaButton() {
+    private func configuratePizzaButton() {
         pizzaButton.setTitle("Пицца", for: .normal)
         pizzaButton.setTitleColor(.black, for: .normal)
         pizzaButton.layer.borderColor = UIColor.black.cgColor
@@ -29,7 +37,7 @@ class FoodViewController: UIViewController {
         view.addSubview(pizzaButton)
     }
     
-    func configurateSushiButton() {
+    private func configurateSushiButton() {
         sushiButton.setTitle("Суши", for: .normal)
         sushiButton.setTitleColor(.black, for: .normal)
         sushiButton.layer.borderColor = UIColor.black.cgColor
@@ -38,13 +46,7 @@ class FoodViewController: UIViewController {
         view.addSubview(sushiButton)
     }
     
-    @objc func toPizzaChoise() {
-        let pizzaChoiseVC = PizzaChoiseViewController()
-        pizzaChoiseVC.title = "Pizza"
-        navigationController?.pushViewController(pizzaChoiseVC, animated: true)
-    }
-    
-    func setupUI() {
+    private func setupUI() {
         view.backgroundColor = .white
         navigationItem.hidesBackButton = true
         
