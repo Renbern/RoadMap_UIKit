@@ -52,7 +52,7 @@ class LabelEditingViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .darkGray
+        view.backgroundColor = .lightGray
         title = "Изменение текста"
         configurateDemonstrationLabel()
         configurateAddedLabel()

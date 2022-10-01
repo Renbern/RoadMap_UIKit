@@ -21,10 +21,5 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController(rootViewController: demonstrationViewController)
         demonstrationViewController.title = "Demostration Application"
         window?.rootViewController = navigationController
-//        let tabBarVC = UITabBarController()
-//        let mainVC = DemonstrationViewController()
-//        let secondaryVC = SecondViewController()
-//        tabBarVC.setViewControllers([mainVC, secondaryVC], animated: false)
-//        window?.rootViewController = tabBarVC
     }
 }
