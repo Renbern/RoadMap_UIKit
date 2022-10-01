@@ -80,7 +80,11 @@ class LabelEditingViewController: UIViewController {
         demonstrationLabel.numberOfLines = 0
         demonstrationLabel.lineBreakMode = .byWordWrapping
         demonstrationLabel.font = .systemFont(ofSize: 10, weight: .regular)
-        demonstrationLabel.textColor = UIColor(named: "MyRed")
+        demonstrationLabel.textColor = .black
+        demonstrationLabel.shadowColor = .lightGray
+        demonstrationLabel.layer.shadowOpacity = 0.3
+        demonstrationLabel.layer.shadowRadius = 2
+        demonstrationLabel.shadowOffset = CGSize(width: 2, height: 2)
         demonstrationLabel.isHidden = true
         view.addSubview(demonstrationLabel)
     }

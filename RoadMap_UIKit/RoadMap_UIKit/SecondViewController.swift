@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// Второй экран для таб бара
+// MARK: - Второй экран для таб бара
 class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
