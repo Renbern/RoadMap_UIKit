@@ -13,12 +13,18 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
         guard let applicationScene = (scene as? UIWindowScene) else { return }
+        
         window?.windowScene = applicationScene
         window?.makeKeyAndVisible()
         
-        let startViewController = ViewController()
-        let navigationController = UINavigationController(rootViewController: startViewController)
+        let demonstrationViewController = MainViewController()
+        let navigationController = UINavigationController(rootViewController: demonstrationViewController)
+        demonstrationViewController.title = "Demostration Application"
         window?.rootViewController = navigationController
-
+//        let tabBarVC = UITabBarController()
+//        let mainVC = DemonstrationViewController()
+//        let secondaryVC = SecondViewController()
+//        tabBarVC.setViewControllers([mainVC, secondaryVC], animated: false)
+//        window?.rootViewController = tabBarVC
     }
 }
