@@ -11,22 +11,19 @@ import UIKit
 final class TimerViewController: UIViewController {
 
     // MARK: - IBOutlets
-    
     @IBOutlet weak var timerPicker: UIPickerView!
-    // MARK: - Visual Components
+    
     // MARK: - Public properties
     var hour = 0
     var minutes = 0
     var seconds = 0
-    // MARK: - Private properties
-    // MARK: - Initializers
+
     // MARK: - UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    // MARK: - Public methods
-    // MARK: - IBActions
+
     // MARK: - Private methods
     private func setupUI() {
         setUnderlines()
@@ -36,8 +33,6 @@ final class TimerViewController: UIViewController {
     
     private func setUnderlines() {
     }
-    // MARK: - Types
-    // MARK: - Constants
 }
 
 // MARK: - UIPickerViewDelegate
