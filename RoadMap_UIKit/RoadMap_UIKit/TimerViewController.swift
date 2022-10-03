@@ -11,14 +11,14 @@ import UIKit
 final class TimerViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var timerPicker: UIPickerView!
+    @IBOutlet private weak var timerPicker: UIPickerView!
     
     // MARK: - Public properties
-    var hour = 0
-    var minutes = 0
-    var seconds = 0
+    private var hour = 0
+    private var minutes = 0
+    private var seconds = 0
 
-    // MARK: - UIViewController
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -26,12 +26,8 @@ final class TimerViewController: UIViewController {
 
     // MARK: - Private methods
     private func setupUI() {
-        setUnderlines()
         timerPicker.delegate = self
         timerPicker.dataSource = self
-    }
-    
-    private func setUnderlines() {
     }
 }
 
@@ -51,6 +47,7 @@ extension TimerViewController: UIPickerViewDelegate {
     }
 }
 
+// MARK: - UIPickerViewDataSource
 extension TimerViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
@@ -68,6 +65,6 @@ extension TimerViewController: UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-        return timerPicker.frame.size.width / 4
+        timerPicker.frame.size.width / 4
     }
 }
