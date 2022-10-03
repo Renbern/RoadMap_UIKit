@@ -18,7 +18,6 @@ final class CharacterCreationViewController: UIViewController {
     }
     
     // MARK: - IBOutlets
-    
     @IBOutlet weak var characterNameLabel: UILabel!
     
     @IBOutlet weak var characterImageView: UIImageView!
@@ -63,7 +62,6 @@ final class CharacterCreationViewController: UIViewController {
     }
 
     // MARK: - Private methods
-    
     @objc private func strengthPointsSliderAction(sender: UISlider) {
           stregthLabel.text = "Сила - \(Int(sender.value))"
       }

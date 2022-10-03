@@ -11,14 +11,9 @@ final class RegistrationViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var nicknameTextField: UITextField!
-    // MARK: - Visual Components
-    // MARK: - Public properties
-    // MARK: - Private properties
-    // MARK: - Initializers
-    // MARK: - Constants
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +22,13 @@ final class RegistrationViewController: UIViewController {
         passwordTextField.delegate = self
         nicknameTextField.delegate = self
     }
-    // MARK: - Public methods
+
     // MARK: - IBActions
-    
     @IBAction func registrationAction(_ sender: Any) {
         showExistingUserAlertController()
     }
     
     // MARK: - Private methods
-    
     @objc private func showExistingUserAlertController() {
         if nicknameTextField.text == "Renbern" {
             existingUserAlertController()
@@ -77,6 +70,4 @@ final class RegistrationViewController: UIViewController {
         navigationController?.popViewController(animated: true)
         present(existingUserAlertController, animated: true)
     }
-
-    // MARK: - Types
 }

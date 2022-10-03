@@ -16,7 +16,6 @@
 		0499D1D028EB594800A77382 /* RegistrationViewController + Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499D1CF28EB594800A77382 /* RegistrationViewController + Extesion.swift */; };
 		0499D1D228EB684800A77382 /* CharacterCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499D1D128EB684800A77382 /* CharacterCreationViewController.swift */; };
 		0499D1D428EB6D6B00A77382 /* CharacterCreationViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499D1D328EB6D6B00A77382 /* CharacterCreationViewController + Extension.swift */; };
-		04F67F9728E748B500F3989F /* UIControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F67F9628E748B500F3989F /* UIControl+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		0499D1CF28EB594800A77382 /* RegistrationViewController + Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegistrationViewController + Extesion.swift"; sourceTree = "<group>"; };
 		0499D1D128EB684800A77382 /* CharacterCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreationViewController.swift; sourceTree = "<group>"; };
 		0499D1D328EB6D6B00A77382 /* CharacterCreationViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterCreationViewController + Extension.swift"; sourceTree = "<group>"; };
-		04F67F9628E748B500F3989F /* UIControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +65,6 @@
 				047A73D028DAFF9300AFFA3F /* AppDelegate.swift */,
 				047A73D228DAFF9300AFFA3F /* SceneDelegate.swift */,
 				047A73D428DAFF9300AFFA3F /* RegistrationViewController.swift */,
-				04F67F9628E748B500F3989F /* UIControl+Extension.swift */,
 				0499D1CF28EB594800A77382 /* RegistrationViewController + Extesion.swift */,
 				0499D1D128EB684800A77382 /* CharacterCreationViewController.swift */,
 				0499D1D328EB6D6B00A77382 /* CharacterCreationViewController + Extension.swift */,
@@ -190,7 +187,6 @@
 				047A73D528DAFF9300AFFA3F /* RegistrationViewController.swift in Sources */,
 				047A73D128DAFF9300AFFA3F /* AppDelegate.swift in Sources */,
 				047A73D328DAFF9300AFFA3F /* SceneDelegate.swift in Sources */,
-				04F67F9728E748B500F3989F /* UIControl+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
