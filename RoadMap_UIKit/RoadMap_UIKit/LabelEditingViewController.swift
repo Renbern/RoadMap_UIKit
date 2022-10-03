@@ -8,7 +8,7 @@
 import UIKit
 
 /// Экран изменения лейбла
-class LabelEditingViewController: UIViewController {
+final class LabelEditingViewController: UIViewController {
     
     // MARK: - Visual Components
     private let demonstrationLabel = UILabel()
@@ -19,14 +19,18 @@ class LabelEditingViewController: UIViewController {
     private let labelTextColorTextField = UITextField()
     private let numberOfLinesTextField = UITextField()
     
-    // MARK: - UIViewController
+    //MARK: - Constants
+    let textColors = ["MyRed", "MyGreen", "MyBlue", "MyPurple"]
+    let numbersOfLine = [10, 11, 12, 13, 14, 15, 16, 17, 18]
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
     // MARK: - Private methods
-    @objc private func addTextToLabelAlertController() {
+    @objc private func addTextToLabelAlertControllerAction() {
         let addTextAlertController = UIAlertController(
             title: "Скажи что-нибудь",
             message: "Не стесняйся",
@@ -34,8 +38,8 @@ class LabelEditingViewController: UIViewController {
         
         let addTextAlertControllerOkAction = UIAlertAction(
             title: "ОК",
-            style: .default) { [weak addTextAlertController] _ in
-                let textField = addTextAlertController?.textFields?[0]
+            style: .default) { _ in
+                let textField = addTextAlertController.textFields?[0]
                 self.addedLabel.text = textField?.text
                 self.demonstrationLabel.isHidden = false
             }
@@ -98,7 +102,7 @@ class LabelEditingViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
-            action: #selector(addTextToLabelAlertController)
+            action: #selector(addTextToLabelAlertControllerAction)
         )
     }
     
@@ -136,9 +140,6 @@ class LabelEditingViewController: UIViewController {
         numberOfLinesPicker.delegate = self
         numberOfLinesPicker.dataSource = self
     }
-    
-    let textColors = ["MyRed", "MyGreen", "MyBlue", "MyPurple"]
-    let numbersOfLine = [10, 11, 12, 13, 14, 15, 16, 17, 18]
 }
 
 // MARK: - UIPickerViewDelegate, UIPickerViewDataSource

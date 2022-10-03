@@ -7,13 +7,12 @@
 
 import UIKit
 
-// MARK: - Второй экран для таб бара
-class SecondViewController: UIViewController {
+// MARK: - Второй контроллер таб бара
+final class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "MyRed")
         title = "Second View Controller"
     }
-
 }
