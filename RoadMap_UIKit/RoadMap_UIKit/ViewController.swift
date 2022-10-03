@@ -14,7 +14,8 @@ final class ViewController: UIViewController {
     // MARK: - Public properties
     // MARK: - Private properties
     // MARK: - Initializers
-    // MARK: - UIViewController
+    // MARK: - Constants
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -31,5 +32,4 @@ final class ViewController: UIViewController {
     private func setUnderlines() {
     }
     // MARK: - Types
-    // MARK: - Constants
 }
