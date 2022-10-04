@@ -16,7 +16,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = applicationScene
         window?.makeKeyAndVisible()
         
-        let startViewController = ViewController()
+        let startViewController = ReaderViewController()
         let navigationController = UINavigationController(rootViewController: startViewController)
         window?.rootViewController = navigationController
 
