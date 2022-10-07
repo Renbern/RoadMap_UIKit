@@ -6,33 +6,27 @@
 
 import UIKit
 
-// Стартовый экран приложения
+// StopWatch
 final class StopWatchViewController: UIViewController {
     
     // MARK: - IBOutlets
-    
-    @IBOutlet weak var timeLabel: UILabel!
-    
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var stopButton: UIButton!
-    
-    // MARK: - Visual Components
-    // MARK: - Public properties
+    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var startButton: UIButton!
+    @IBOutlet private weak var stopButton: UIButton!
+
     // MARK: - Private properties
-    var timer = Timer()
-    var isTimerRunning = false
-    var counter = 0.0
-    // MARK: - Initializers
-    // MARK: - Constants
+    private var timer = Timer()
+    private var isTimerRunning = false
+    private var counter = 0.0
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    // MARK: - Public methods
+
     // MARK: - IBActions
-    
-    @IBAction func startButtonAction(_ sender: Any) {
+    @IBAction private func startButtonAction(_ sender: Any) {
         if !isTimerRunning {
             startButton.setTitle("Pause", for: .normal)
             timer = Timer.scheduledTimer(
@@ -54,7 +48,7 @@ final class StopWatchViewController: UIViewController {
         }
     }
     
-    @IBAction func stopButtonAction(_ sender: Any) {
+    @IBAction private func stopButtonAction(_ sender: Any) {
         timer.invalidate()
         isTimerRunning = false
         counter = 0.0
@@ -68,7 +62,6 @@ final class StopWatchViewController: UIViewController {
     }
     
     // MARK: - Private methods
-    
     @objc private func runTimerAction() {
         counter += 0.1
         let flooredCounter = Int(Float(counter))
@@ -93,5 +86,4 @@ final class StopWatchViewController: UIViewController {
         startButton.isEnabled = true
         
     }
-    // MARK: - Types
 }
