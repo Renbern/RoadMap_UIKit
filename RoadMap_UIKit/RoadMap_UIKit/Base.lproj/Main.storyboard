@@ -12,7 +12,7 @@
         <!--Registration View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RegistrationViewController" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationViewController" id="BYZ-38-t0r" customClass="RegistrationViewController" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,7 @@
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Войти"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Войти" cornerStyle="capsule">
+                                <buttonConfiguration key="configuration" style="filled" title="Регистрация" cornerStyle="capsule">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="0.97484189269999999" green="0.40392714740000002" blue="0.0021643284709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </backgroundConfiguration>
@@ -68,7 +68,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="registrationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="neg-Md-ATt"/>
-                                    <segue destination="RMt-IN-bzn" kind="show" id="ZHN-RQ-Ad9"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tCr-4e-Wy1">
@@ -94,12 +93,102 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996.92307692307691" y="-34.123222748815166"/>
+            <point key="canvasLocation" x="1654" y="-34"/>
+        </scene>
+        <!--Enter View Controller-->
+        <scene sceneID="wXv-7x-vy5">
+            <objects>
+                <viewController storyboardIdentifier="EnterViewController" id="mJV-Lb-wBR" customClass="EnterViewController" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wUK-x9-pZb">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите e-mail" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ghE-rf-VmA">
+                                <rect key="frame" x="33" y="371" width="325" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="continue"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uoa-D7-lD6">
+                                <rect key="frame" x="33" y="333" width="51" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.4176322818" green="0.3349891901" blue="0.2071195841" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auw-rG-zgG">
+                                <rect key="frame" x="33" y="434" width="78" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" red="0.4176322818" green="0.3349891901" blue="0.2071195841" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Am-SV-qtK">
+                                <rect key="frame" x="56" y="642" width="279" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="34"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Войти"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Войти" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.97484189269999999" green="0.40392714740000002" blue="0.0021643284709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Impact" family="Impact" pointSize="34"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="enterButtonAction:" destination="mJV-Lb-wBR" eventType="touchUpInside" id="YBE-yG-20u"/>
+                                    <action selector="registrationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5sg-QM-g7z"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите пароль" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ST5-Wd-JGH">
+                                <rect key="frame" x="33" y="474" width="325" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="jG0-GC-QaD">
+                                <rect key="frame" x="-71" y="72" width="532" height="228"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2U-vh-E5M">
+                                <rect key="frame" x="56" y="730" width="279" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="34"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Войти"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Регистрация" cornerStyle="capsule">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="0.97484189269999999" green="0.40392714740000002" blue="0.0021643284709999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Impact" family="Impact" pointSize="34"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="registrationAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oLH-V3-m8y"/>
+                                    <action selector="registrationButtonAction:" destination="mJV-Lb-wBR" eventType="touchUpInside" id="FKk-zp-SUm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zCV-ab-yCl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zXf-nF-Xnw"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="ghE-rf-VmA" id="pKP-xb-Kmh"/>
+                        <outlet property="passwordTextField" destination="ST5-Wd-JGH" id="MoM-aS-YjW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6lb-mU-f5K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="835" y="-34"/>
         </scene>
         <!--Создание персонажа-->
         <scene sceneID="lrx-ex-EK3">
             <objects>
-                <viewController title="Создание персонажа" id="RMt-IN-bzn" customClass="CharacterCreationViewController" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CharacterCreationViewController" title="Создание персонажа" id="RMt-IN-bzn" customClass="CharacterCreationViewController" customModule="RoadMap_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H7F-C9-1v4">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -298,7 +387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9P0-Mh-RMn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889.2307692307691" y="-34.123222748815166"/>
+            <point key="canvasLocation" x="2554" y="-34"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="M27-SV-HY6">
@@ -311,7 +400,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gqd-6X-aXM"/>
+                        <segue destination="mJV-Lb-wBR" kind="relationship" relationship="rootViewController" id="8dL-fo-fIK"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCc-rY-KAa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

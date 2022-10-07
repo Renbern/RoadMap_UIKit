@@ -16,6 +16,8 @@
 		0499D1D028EB594800A77382 /* RegistrationViewController + Extesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499D1CF28EB594800A77382 /* RegistrationViewController + Extesion.swift */; };
 		0499D1D228EB684800A77382 /* CharacterCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499D1D128EB684800A77382 /* CharacterCreationViewController.swift */; };
 		0499D1D428EB6D6B00A77382 /* CharacterCreationViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499D1D328EB6D6B00A77382 /* CharacterCreationViewController + Extension.swift */; };
+		04DCADC128F029F900CD7B2F /* EnterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DCADC028F029F900CD7B2F /* EnterViewController.swift */; };
+		04DCADC328F02E7900CD7B2F /* EnterViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DCADC228F02E7900CD7B2F /* EnterViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		0499D1CF28EB594800A77382 /* RegistrationViewController + Extesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegistrationViewController + Extesion.swift"; sourceTree = "<group>"; };
 		0499D1D128EB684800A77382 /* CharacterCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCreationViewController.swift; sourceTree = "<group>"; };
 		0499D1D328EB6D6B00A77382 /* CharacterCreationViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterCreationViewController + Extension.swift"; sourceTree = "<group>"; };
+		04DCADC028F029F900CD7B2F /* EnterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterViewController.swift; sourceTree = "<group>"; };
+		04DCADC228F02E7900CD7B2F /* EnterViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnterViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				047A73D228DAFF9300AFFA3F /* SceneDelegate.swift */,
 				047A73D428DAFF9300AFFA3F /* RegistrationViewController.swift */,
 				0499D1CF28EB594800A77382 /* RegistrationViewController + Extesion.swift */,
+				04DCADC028F029F900CD7B2F /* EnterViewController.swift */,
+				04DCADC228F02E7900CD7B2F /* EnterViewController+Extension.swift */,
 				0499D1D128EB684800A77382 /* CharacterCreationViewController.swift */,
 				0499D1D328EB6D6B00A77382 /* CharacterCreationViewController + Extension.swift */,
 				047A73D628DAFF9300AFFA3F /* Main.storyboard */,
@@ -182,7 +188,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0499D1D028EB594800A77382 /* RegistrationViewController + Extesion.swift in Sources */,
+				04DCADC128F029F900CD7B2F /* EnterViewController.swift in Sources */,
 				0499D1D228EB684800A77382 /* CharacterCreationViewController.swift in Sources */,
+				04DCADC328F02E7900CD7B2F /* EnterViewController+Extension.swift in Sources */,
 				0499D1D428EB6D6B00A77382 /* CharacterCreationViewController + Extension.swift in Sources */,
 				047A73D528DAFF9300AFFA3F /* RegistrationViewController.swift in Sources */,
 				047A73D128DAFF9300AFFA3F /* AppDelegate.swift in Sources */,

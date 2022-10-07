@@ -30,14 +30,17 @@ final class RegistrationViewController: UIViewController {
     
     // MARK: - Private methods
     @objc private func showExistingUserAlertController() {
-        if nicknameTextField.text == "Renbern" {
-            existingUserAlertController()
-        }
+        guard let userEmail = emailTextField.text else { return }
+        UserDefaults.standard.set(userEmail, forKey: "emailTextField")
+        navigationController?.popViewController(animated: true)
     }
+    
+    private let defaults = UserDefaults.standard
     
     private func setupUI() {
         view.backgroundColor = .white
         movingView()
+        defaults.string(forKey: "emailTextField")
     }
     
     // Moving view by Y
@@ -62,11 +65,21 @@ final class RegistrationViewController: UIViewController {
     private func existingUserAlertController() {
         let existingUserAlertController = UIAlertController(
             title: "Регистрация отклонена",
-            message: "Пользователь с таким никнеймом уже зарегистрирован",
+            message: "Пользователь с такой почтой уже зарегистрирован",
             preferredStyle: .alert
         )
-        let existingUserAlertControllerOkAction = UIAlertAction(title: "Ok", style: .default)
-        existingUserAlertController.addAction(existingUserAlertControllerOkAction)
+        let existingUserAlertControllerEnterAction = UIAlertAction(title: "Войти", style: .default) { _ in
+            let enterVC = UIStoryboard(name: "Main", bundle: nil)
+            guard let nextScreen = enterVC.instantiateViewController(
+                withIdentifier: "EnterViewController"
+            ) as? EnterViewController else { return }
+            nextScreen.modalPresentationStyle = .fullScreen
+            self.show(nextScreen, sender: nil)
+        }
+        
+        let stayAction = UIAlertAction(title: "Отмена", style: .cancel)
+        existingUserAlertController.addAction(stayAction)
+        existingUserAlertController.addAction(existingUserAlertControllerEnterAction)
         navigationController?.popViewController(animated: true)
         present(existingUserAlertController, animated: true)
     }
