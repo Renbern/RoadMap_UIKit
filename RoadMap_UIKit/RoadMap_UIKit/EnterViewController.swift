@@ -11,8 +11,8 @@ import UIKit
 final class EnterViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
     
     // MARK: - Private properties
     private(set) var key = ""

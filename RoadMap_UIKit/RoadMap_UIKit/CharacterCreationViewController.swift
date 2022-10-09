@@ -18,29 +18,18 @@ final class CharacterCreationViewController: UIViewController {
     }
     
     // MARK: - IBOutlets
-    @IBOutlet weak var characterNameLabel: UILabel!
-    
-    @IBOutlet weak var characterImageView: UIImageView!
-    
-    @IBOutlet weak var classSegmentControl: UISegmentedControl!
-    
-    @IBOutlet weak var stregthLabel: UILabel!
-    
-    @IBOutlet weak var characterNameTextField: UITextField!
-    
-    @IBOutlet weak var intellegenceLabel: UILabel!
-    
-    @IBOutlet weak var raceTextField: UITextField!
-    
-    @IBOutlet weak var agilityLabel: UILabel!
-    
-    @IBOutlet weak var racePicker: UIPickerView!
-    
-    @IBOutlet weak var strengthSlider: UISlider!
-    
-    @IBOutlet weak var intellegenceSlider: UISlider!
-    
-    @IBOutlet weak var agilitySlider: UISlider!
+    @IBOutlet private weak var characterNameLabel: UILabel!
+    @IBOutlet private weak var characterImageView: UIImageView!
+    @IBOutlet private weak var classSegmentControl: UISegmentedControl!
+    @IBOutlet private weak var stregthLabel: UILabel!
+    @IBOutlet private weak var characterNameTextField: UITextField!
+    @IBOutlet private weak var intellegenceLabel: UILabel!
+    @IBOutlet private weak var raceTextField: UITextField!
+    @IBOutlet private weak var agilityLabel: UILabel!
+    @IBOutlet private weak var racePicker: UIPickerView!
+    @IBOutlet private weak var strengthSlider: UISlider!
+    @IBOutlet private weak var intellegenceSlider: UISlider!
+    @IBOutlet private weak var agilitySlider: UISlider!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -50,12 +39,8 @@ final class CharacterCreationViewController: UIViewController {
     // MARK: - IBActions
     @IBAction private func classSegmentControllAction(_ sender: Any) {
         switch classSegmentControl.selectedSegmentIndex {
-        case 0:
-            characterImageView.image = UIImage(named: Constants.classes[0])
-        case 1:
-            characterImageView.image = UIImage(named: Constants.classes[1])
-        case 2:
-            characterImageView.image = UIImage(named: Constants.classes[2])
+        case 0...2:
+            characterImageView.image = UIImage(named: Constants.classes[classSegmentControl.selectedSegmentIndex])
         default:
             characterImageView.image = UIImage(systemName: "questionmark")
         }
@@ -112,5 +97,44 @@ final class CharacterCreationViewController: UIViewController {
         configurateStrengthSlider()
         configurateIntellegenceSlider()
         configurateAgilitySlider()
+    }
+}
+
+// MARK: - Extension
+
+// MARK: - UIPickerViewDelegate
+extension CharacterCreationViewController: UIPickerViewDelegate {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Constants.races[row]
+    }
+}
+
+// MARK: - UIPickerViewDelegate
+extension CharacterCreationViewController: UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Constants.races.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        raceTextField.text = Constants.races[row]
+        raceTextField.resignFirstResponder()
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension CharacterCreationViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        racePicker.isHidden = false
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        characterNameLabel.text = "\(textField.text ?? "Бeзымянный") 1 ур."
+        characterNameTextField.resignFirstResponder()
+        return true
     }
 }

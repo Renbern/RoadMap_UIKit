@@ -38,9 +38,8 @@ extension CharacterCreationViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        characterNameLabel.text = "\(textField.text ?? "Бузымянный") 1 ур."
+        characterNameLabel.text = "\(textField.text ?? "Бeзымянный") 1 ур."
         characterNameTextField.resignFirstResponder()
         return true
     }
-
 }
