@@ -13,7 +13,7 @@ final class ReaderViewController: UIViewController {
     enum Constants {
         static let fonts = ["Palatino", "Optima Regular", "Kohinoor Devanagari Regular", "Georgia"]
     }
-    // MARK: - IBOutlets
+
     // MARK: - Visual Components
     private let redTextButton = UIButton()
     private let systemPurpleButton = UIButton()
@@ -21,26 +21,21 @@ final class ReaderViewController: UIViewController {
     private let systemTealButton = UIButton()
     private let regularFontButton = UIButton()
     private let boldFontButton = UIButton()
-    
     private let textFontSizeSlider = UISlider()
-    
-    private let fontPicker = UIPickerView()
-    
+    private let fontPickerView = UIPickerView()
     private let darkModeSwitch = UISwitch()
     
     // MARK: - Public properties
     let fontTextField = UITextField()
     
     var myTextView = UITextView()
-    // MARK: - Private properties
-    // MARK: - Initializers
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    // MARK: - Public methods
-    // MARK: - IBActions
+    
     // MARK: - Private methods
     
     @objc private func changeTextColorAction(_ sender: UIButton) {
@@ -59,8 +54,6 @@ final class ReaderViewController: UIViewController {
     }
     
     @objc private func toMakeTextViewRegularAction() {
-//        let regularText = myTextView.font?.regular
-//        myTextView.font = regularText
         myTextView.font = myTextView.font?.regular
     }
     
@@ -157,15 +150,15 @@ I'm sorry but I don't want to be an Emperor. That's not my business. I don't wan
     private func configurateFontTextField() {
         fontTextField.frame = CGRect(x: 35, y: 600, width: 250, height: 25)
         fontTextField.placeholder = "Выберите шрифт"
-        fontTextField.inputView = fontPicker
+        fontTextField.inputView = fontPickerView
         fontTextField.addTarget(self, action: #selector(changeTextColorAction), for: .touchUpInside)
         
         view.addSubview(fontTextField)
     }
     
     private func configurateFontPicker() {
-        fontPicker.delegate = self
-        fontPicker.dataSource = self
+        fontPickerView.delegate = self
+        fontPickerView.dataSource = self
     }
     
     private func configurateRegularFontButton() {
@@ -205,6 +198,4 @@ I'm sorry but I don't want to be an Emperor. That's not my business. I don't wan
         configurateBoldFontButton()
         configurateDarkModeSwitch()
     }
-    
-    // MARK: - Types
 }
