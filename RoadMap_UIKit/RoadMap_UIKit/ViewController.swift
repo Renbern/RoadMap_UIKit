@@ -8,28 +8,14 @@ import UIKit
 
 // Стартовый экран приложения
 final class ViewController: UIViewController {
-    
-    // MARK: - IBOutlets
-    // MARK: - Visual Components
-    // MARK: - Public properties
-    // MARK: - Private properties
-    // MARK: - Initializers
-    // MARK: - Constants
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-    // MARK: - Public methods
-    // MARK: - IBActions
-    // MARK: - Private methods
-    private func setupUI() {
-        view.backgroundColor = .white
-        
-        setUnderlines()
+        title = "Storyboard"
     }
     
-    private func setUnderlines() {
+    // MARK: - IBActions
+    @IBAction func toNSLayoutConstraintViewControllerAction(_ sender: Any) {
     }
-    // MARK: - Types
 }
