@@ -9,8 +9,13 @@ import UIKit
 
 // Экран светофора с констрейнтами NSLayoutConstraint
 final class NSLayoutConstraintViewController: UIViewController {
-
-    // MARK: Private properties
+    
+    // MARK: - Constants
+    private enum Constants {
+        static let titleName = "NSLayoutConstraint"
+    }
+    
+    // MARK: - Private visual elements
     private let blackView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +52,7 @@ final class NSLayoutConstraintViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        title = "NSLayoutConstraint"
+        title = Constants.titleName
         view.addSubview(blackView)
         view.addSubview(yellowView)
         view.addSubview(redView)

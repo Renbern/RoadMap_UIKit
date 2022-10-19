@@ -9,13 +9,14 @@ import UIKit
 // Стартовый экран приложения
 final class ViewController: UIViewController {
 
+    // MARK: - Constants
+    private enum Constants {
+        static let titleName = "Storyboard"
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Storyboard"
-    }
-    
-    // MARK: - IBActions
-    @IBAction func toNSLayoutConstraintViewControllerAction(_ sender: Any) {
+        title = Constants.titleName
     }
 }

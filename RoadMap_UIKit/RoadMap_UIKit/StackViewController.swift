@@ -10,7 +10,12 @@ import UIKit
 /// Экран светофора с использованием Stack View
 final class StackViewController: UIViewController {
 
-    // MARK: - Private properties
+    // MARK: - Constants
+    private enum Constants {
+        static let titleName = "StackViewController"
+    }
+    
+    // MARK: - Private visual components
     private let redView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -47,8 +52,7 @@ final class StackViewController: UIViewController {
         super.viewDidLoad()
         setupStackView()
     }
-    
-    /// Перерисовка расстояний между цветами
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupSpacing()
@@ -56,7 +60,7 @@ final class StackViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupStackView() {
-        title = "StackViewController"
+        title = Constants.titleName
         view.addSubview(colorStackView)
         colorStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8).isActive = true
         colorStackView.widthAnchor.constraint(equalTo: colorStackView.heightAnchor, multiplier: 1/3).isActive = true

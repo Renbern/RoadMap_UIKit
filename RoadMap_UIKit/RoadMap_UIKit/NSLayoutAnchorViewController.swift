@@ -8,9 +8,14 @@
 import UIKit
 
 /// Экран свертофора с якорями
-class NSLayoutAnchorViewController: UIViewController {
+final class NSLayoutAnchorViewController: UIViewController {
 
-    // MARK: - Private properties
+    // MARK: - Constants
+    private enum Constants {
+        static let titleName = "NSLayoutAnchor"
+    }
+    
+    // MARK: - Private visual elements 
     private let blackView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +52,7 @@ class NSLayoutAnchorViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        title = "NSLayoutAnchor"
+        title = Constants.titleName
         view.addSubview(blackView)
         view.addSubview(yellowView)
         view.addSubview(redView)

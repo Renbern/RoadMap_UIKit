@@ -64,7 +64,6 @@
                                     <imageReference key="image" image="chevron.compact.right" catalog="system" symbolScale="medium"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="toNSLayoutConstraintViewControllerAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ul-JD-519"/>
                                     <segue destination="ETp-Ob-RB0" kind="show" id="l3N-2j-8H4"/>
                                 </connections>
                             </button>
